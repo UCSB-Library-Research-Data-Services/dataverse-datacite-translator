@@ -29,6 +29,15 @@ def safe_write(write_func, *args):
 
 
 def generate_xml(metadata, output_file):
+    root = build_xml(metadata)
+    write_file(root, output_file)
+    return root
+
+
+
+
+
+def build_xml(metadata) -> ET.Element:
     deaccessioned = False
 
     version_state = metadata.get("data", {}).get("latestVersion", {}).get("versionState", None)
@@ -77,7 +86,9 @@ def generate_xml(metadata, output_file):
         safe_write(write_geolocations, root, metadata)
         safe_write(write_funding_references, root, citation_fields)
 
-    write_file(root, output_file)
+    return root
+
+
 
 
 def write_identifier(parent, metadata):

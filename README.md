@@ -34,19 +34,27 @@ Clone the Github repository and run `main.py`. The script requires `requests` an
 
 ### As a library
 
+Two functions are available, depending on whether you want a file written to disk:
+
 ```python
 import json
-from datacite import generate_xml
+from datacite import generate_xml, build_xml
 
 with open("metadata.json") as f:
     metadata = json.load(f)
 
-generate_xml(metadata, "output.xml")
+# Writes to a file and also returns the root element
+root = generate_xml(metadata, "output.xml")
+
+# Builds the XML in memory only - nothing is written to disk
+root = build_xml(metadata)
 ```
 
-`generate_xml(metadata: dict, output_file: str)` takes the parsed Dataverse JSON export and writes the resulting DataCite XML to `output_file`. It doesn't return the XML directly; read `output_file` back if you need the contents in memory. 
+`generate_xml(metadata: dict, output_file: str)` takes the parsed Dataverse JSON export, writes the resulting DataCite XML to `output_file`, and returns the root `xml.etree.ElementTree.Element` of the generated document. It's a thin wrapper around `build_xml` that also handles the file write.
 
-Every element writer fails independently, and logs a warning to the console if an error is encountered. An output xml file is always produced as a result.
+`build_xml(metadata: dict)` does the same translation but only returns the root `xml.etree.ElementTree.Element` - use this if you want the XML in memory (e.g. to serialize it yourself, or hand it to something else) without writing a file at all.
+
+Every element writer fails independently, and logs a warning to the console if an error is encountered. When using `generate_xml`, an output xml file is always produced as a result.
 
 
 ### As a CLI
