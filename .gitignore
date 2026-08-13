@@ -1,0 +1,7 @@
+*.swp
+*.un~
+.venv/
+__pycache__/
+java-source-files.zip
+java/
+.env
