@@ -11,7 +11,7 @@ It reads a Dataverse dataset's native JSON API export and produces a DataCite ke
 The `datacite` package itself has no external dependencies (standard library only). It can be installed directly from this repo without publishing anywhere:
 
 ```
-pip install git+<this-repo-url>
+pip install git+https://github.com/UCSB-Library-Research-Data-Services/dataverse-datacite-translator
 ```
 
 or, for local development against another project on your machine:
@@ -71,7 +71,7 @@ The `-p` lookup requires a `SERVER_URL` environment variable (e.g. in a `.env` f
 
 The motivation for the tool is to provide a means of obtaining XML Metadata from any given Dataset through a signed URL for externals tools in Dataverse. The Dataverse does in fact have APIs to export XML Metadata, but these are not compatible with signed URLs as they require API tokens.
 
-The specific external tool this was written for is a metadata validator utility:https://github.com/UCSB-Library-Research-Data-Services/metadata-checker 
+The specific external tool this was written for is a metadata validator utility: https://github.com/UCSB-Library-Research-Data-Services/metadata-checker 
 
 
 ## Credit and Attributions
@@ -80,3 +80,6 @@ This tool was written by [Joshua Gray](https://www.linkedin.com/in/joshuaegray/)
 
 It is heavily based on the Dataverse source code (which is written in Java) in accordance with the Apache 2.0 license. Thus, the mapping logic mirrors the original java implementation, and in some cases exact code or files are copied into the python tool. The source code can be found at https://github.com/IQSS/dataverse
 
+## Disclaimer
+
+This code is provided "as is," with no warranties or guarantees of any kind. It was developed primarily for internal use; neither UCSB nor Joshua Gray is responsible for any damages resulting from its use.
