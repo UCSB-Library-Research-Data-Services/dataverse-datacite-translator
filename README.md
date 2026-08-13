@@ -8,7 +8,11 @@ It reads a Dataverse dataset's native JSON API export and produces a DataCite ke
 
 ## Installation
 
-The `datacite` package itself has no external dependencies (standard library only). It can be installed directly from this repo without publishing anywhere:
+There are two separate ways to use this tool - installing it as a library only installs the `datacite` package, **not** `main.py` (see below), so pick the path that matches how you intend to use it.
+
+### As a library (in another project)
+
+The `datacite` package itself has no external dependencies (standard library only). Install it directly from this repo without publishing anywhere:
 
 ```
 pip install git+https://github.com/UCSB-Library-Research-Data-Services/dataverse-datacite-translator
@@ -20,11 +24,11 @@ or, for local development against another project on your machine:
 pip install -e /path/to/python_translation_tool
 ```
 
-Running `main.py` as a standalone CLI additionally requires `requests` and `python-dotenv`:
+Either way, this makes `from datacite import generate_xml` available - see "As a library" under Usage below. `main.py` is **not** part of what gets installed by either command; it's a CLI script that lives in this repo and is only usable if you have the repo itself checked out (next section).
 
-```
-pip install requests python-dotenv
-```
+### As a standalone CLI
+
+Clone the Github repository and run `main.py`. The script requires `requests` and `python-dotenv`
 
 ## Usage
 
@@ -46,6 +50,8 @@ Every element writer fails independently, and logs a warning to the console if a
 
 
 ### As a CLI
+
+(requires the repo to be cloned - see "As a standalone CLI" under Installation above)
 
 ```
 python3 main.py -i metadata.json -o output.xml
