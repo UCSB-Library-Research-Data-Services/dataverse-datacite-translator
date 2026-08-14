@@ -479,9 +479,6 @@ def write_access_rights(parent, metadata):
 
     rights_list_element = ET.SubElement(parent, "rightsList")
 
-    access_rights_element = ET.SubElement(rights_list_element, "rights")
-    write_attribute(access_rights_element, "rightsURI", access_uri)
-
     license = latest_version.get("license")
     if license:
         uri = license.get("uri")
@@ -505,6 +502,9 @@ def write_access_rights(parent, metadata):
         description = LICENSE_SHORT_DESCRIPTIONS.get(uri) or license.get("name")
 
         write_full_element_with_attributes(rights_list_element, "rights", attributes, description)
+
+    access_rights_element = ET.SubElement(rights_list_element, "rights")
+    write_attribute(access_rights_element, "rightsURI", access_uri)
 
     return rights_list_element
 
