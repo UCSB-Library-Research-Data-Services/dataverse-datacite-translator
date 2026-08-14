@@ -579,7 +579,8 @@ def write_geolocations(parent, metadata):
         state = child_value(row, "state")
         city = child_value(row, "city")
         other = child_value(row, "otherGeographicCoverage")
-        entries.append(("place", format_geo_location_place(country, state, city, other)))
+        if country or state or city or other:
+            entries.append(("place", format_geo_location_place(country, state, city, other)))
 
     for row in compound_rows(geospatial_fields, "geographicBoundingBox"):
         west = child_value(row, "westLongitude")
