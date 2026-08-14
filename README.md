@@ -87,6 +87,9 @@ The motivation for the tool is to provide a means of obtaining XML Metadata from
 
 The specific external tool this was written for is a metadata validator utility: https://github.com/UCSB-Library-Research-Data-Services/metadata-checker 
 
+## Other Notes
+
+The only intentional design variation from the original Datacite export is the order of XML tags in the rights list. This is because of the way the Datacite XML tests were written.
 
 ## Credit and Attributions
 
