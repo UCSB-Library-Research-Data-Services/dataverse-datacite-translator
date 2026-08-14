@@ -1,5 +1,8 @@
 ## Summary
 
+[Joshua Gray](https://www.linkedin.com/in/joshuaegray/)
+© 2026 The Regents of the University of California
+
 This is a metadata translation tool designed to translate JSON metadata into Datacite XML in the context of the Dataverse Project.
 
 It reads a Dataverse dataset's native JSON API export and produces a DataCite kernel-4 XML document, mirroring the mapping logic Dataverse itself uses when exporting to DataCite.
@@ -96,6 +99,8 @@ The only intentional design variation from the original Datacite export is the o
 This tool was written by [Joshua Gray](https://www.linkedin.com/in/joshuaegray/) for UCSB Library and Research Data Services. 
 
 It is heavily based on the Dataverse source code (which is written in Java) in accordance with the Apache 2.0 license. Thus, the mapping logic mirrors the original java implementation, and in some cases exact code or files are copied into the python tool. The source code can be found at https://github.com/IQSS/dataverse
+
+© 2026 The Regents of the University of California
 
 ## Disclaimer
 
